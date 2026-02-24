@@ -34,7 +34,7 @@ Step 3: Next I looked carefully at the protocol hierachy where I had alot of pro
 
 <img width="956" height="502" alt="Screenshot 2026-02-04 031941" src="https://github.com/user-attachments/assets/e5d5fe22-e5d3-4876-b8ba-6ebaf842970f" />
 
-Step 4: Next I moved to conversations and then to IPV4 and then to bytes. After that I moved to the TCP tables all while trying to look for useful information that will aid in this investigation.
+Step 4: Next I Navigated to conversations and then to IPV4 and then to bytes. After that I moved to the TCP tables all while trying to look for useful information that will aid in this investigation.
 
 <img width="957" height="487" alt="Screenshot 2026-02-04 032622" src="https://github.com/user-attachments/assets/2c043860-3f15-4217-800d-6d758214f361" />
 
