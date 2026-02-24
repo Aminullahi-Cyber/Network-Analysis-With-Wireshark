@@ -45,11 +45,11 @@ Step 5: I then noticed that port 80 has a different byte (184 bytes) from the ot
 <img width="960" height="502" alt="Screenshot 2026-02-04 033703" src="https://github.com/user-attachments/assets/383a5825-f6be-46d2-96ba-d33e58018a07" />
 
 
-Step 6: Then also moving down, I noticed that IP address 10.251.96.4 with port 4442
+Step 6: Then also moving down, I noticed that IP address 10.251.96.4 with port 4442.
 
 <img width="960" height="502" alt="Screenshot 2026-02-04 033703" src="https://github.com/user-attachments/assets/b7aa15b4-6037-4ba1-9fd8-c55ab4a6e0c2" />
 
-Step 7: After analyzing the TCP tab, I then moved to UDP
+Step 7: After analyzing the TCP tab, I then moved to UDP.
 
 <img width="958" height="499" alt="Screenshot 2026-02-04 033923" src="https://github.com/user-attachments/assets/ed502bbe-d301-45d0-b973-8c043a4fbeb6" />
 
@@ -57,7 +57,7 @@ Step 8: This is where I start digging for gold. But before I start checking the 
 
 <img width="955" height="451" alt="Screenshot 2026-02-04 034147" src="https://github.com/user-attachments/assets/0edbec6e-52b5-4729-8207-2b1e42183cc4" />
 
-Step 9: Beginning, I see a HTTP traffic on packet no 14. I right clicked on it, head over to follow & then TCP stream
+Step 9: Beginning, I see a HTTP traffic on packet no 14. I right clicked on it, head over to follow & then TCP stream.
 
 <img width="960" height="526" alt="Screenshot 2026-02-04 034931" src="https://github.com/user-attachments/assets/ad3dcb4d-e293-4bfe-be02-0368402ec835" />
 
@@ -71,7 +71,7 @@ Step 11: Further scrolling down, I see a POST REQUEST on packet 38. Curious abou
 
 <img width="955" height="488" alt="Screenshot 2026-02-04 120436" src="https://github.com/user-attachments/assets/9914437d-ec1d-4cc6-aa57-d0b5dda41a89" />
 
-Step 12: Here I found a login with username & password as Admin%40.1234. Just as a reminder, special characters are encoded
+Step 12: Here I found a login with username & password as Admin%40.1234. Just as a reminder, special characters are encoded.
 
 <img width="957" height="510" alt="Screenshot 2026-02-04 120524" src="https://github.com/user-attachments/assets/3063acc0-d084-461d-87fd-8e917217beaf" />
 
@@ -79,31 +79,31 @@ Step 13: And then out of curiosity, I googled URL decoder and paste the encoded 
 
 <img width="957" height="474" alt="Screenshot 2026-02-04 121031" src="https://github.com/user-attachments/assets/682789e3-fffb-4558-a342-9901c0b2c11e" />
 
-Step 14: Before further analyzing the traffic, I decided to include both source ports and desitnation port into the packet list view.
+Step 14: Before further analyzing the traffic, I decided to include both source ports and destination port into the packet list view.
 
 <img width="960" height="492" alt="Screenshot 2026-02-04 121708" src="https://github.com/user-attachments/assets/c02f627a-0854-4031-800e-6ce833873d74" />
 
-Step 15: Instead of manually scrolling, I can craft some display filters to zone off to the good stuff. I then move to filter to ease my analysis. Since I am interested in looking for 200 (which means the ones the webserver replied to), I want to see all the 200s coming from the source 10.251.96.5
+Step 15: Instead of manually scrolling, I decided to craft some display filters to zone off to the good stuff. I then move to filter to ease my analysis. Since I am interested in looking for 200 (which means the ones the web server replied to), I want to see all the 200s coming from the source 10.251.96.5.
 
 <img width="943" height="100" alt="Screenshot 2026-02-04 124016" src="https://github.com/user-attachments/assets/4b7c1eb1-c7a3-4da4-8f9d-f0e30f0300e8" />
 
-Step 16: After applying the filter, I got all the 200. But then I put my focus on the length column. Most of the packets have a length between 500-750, but then on packet 7725 with length of 8494 which could only mean the server ,ight have responded to soemthing large
+Step 16: After applying the filter, I got all the 200. But then my focus was on the length column. Most of the packets have a length between 500-750, but packet 7725 with length of 8494 which could only mean the server might have responded to something large.
 
 <img width="956" height="494" alt="Screenshot 2026-02-04 124048" src="https://github.com/user-attachments/assets/a3beea58-6784-4074-838f-506a39749434" />
 
 <img width="960" height="492" alt="Screenshot 2026-02-04 124645" src="https://github.com/user-attachments/assets/6c9c50b2-aaf5-4382-9c8c-a48b6d6ac041" />
 
-Step 17: To confirm that, I hit the HTTP stream of the packet 7725 with length of 8494 to see more details. And Yes, we found alot of responses. I also noticed version of php, knowing the version, this means an attacker can look for exploit & exploit this particular version 
+Step 17: To confirm that, I hit the HTTP stream of the packet 7725 with length of 8494 to see more details. And Yes, we found alot of responses. I also noticed version of php, knowing the version, this means an attacker can look for exploit & exploit this particular version.
 
 <img width="955" height="500" alt="Screenshot 2026-02-04 125340" src="https://github.com/user-attachments/assets/4c835402-d794-4344-9a77-94173fe9f7ec" />
 
 <img width="960" height="508" alt="Screenshot 2026-02-04 125356" src="https://github.com/user-attachments/assets/91c8ad93-3ef0-473e-9265-175d0e93f459" />
 
-Step 18: Going forward on Packet 14060, I noticed a wierd POST request. I then decided to follow that and check the HTTP stream  
+Step 18: Going forward on Packet 14060, I noticed a wierd POST request. I then decided to follow that and check the HTTP stream.  
 
 <img width="959" height="491" alt="Screenshot 2026-02-04 130253" src="https://github.com/user-attachments/assets/7e331dbc-a06b-4614-84e0-3967ac3846ce" />
 
-Step 19: Upon checking the HTTP stream, there is clearly a form of SQL attack happening. But everything is encoded. I found out that it is indeed a form of SQL attack as well as testing to see if there are cross scripting
+Step 19: Upon checking the HTTP stream, there is clearly a form of SQL attack happening. But everything is encoded. I found out that it is indeed a form of SQL attack as well as testing to see if there are cross scripting.
 
 <img width="960" height="489" alt="Screenshot 2026-02-04 130444" src="https://github.com/user-attachments/assets/29c0d2aa-80e6-4afb-b990-e278e3c99d29" />
 
