@@ -2,7 +2,7 @@
 
 ## Objective
 
-The objective of this project was to perform a comprehensive forensic investigation of a 15-minute network packet capture (88,000 packets) to identify and document a full-spectrum web intrusion. By analyzing protocol hierarchies and TCP streams, I aimed to reconstruct an attack timeline that reduced the time-to-detection for a complex multi-stage threat—including directory brute-forcing, SQL injection, and webshell deployment. The goal was to achieve 100% visibility into the adversary's "hands-on-keyboard" activity, ultimately identifying the specific vulnerabilities (insecure file uploads and SQLi) and the unauthorized egress callback on Port 4422 to provide data-driven mitigation strategies.
+The objective of this project was to perform a comprehensive forensic investigation of a 15-minute network packet capture (88,000 packets) to identify and document a full-spectrum web intrusion. By analyzing protocol hierarchies and TCP streams, I aimed to reconstruct an attack timeline that reduced the time-to-detection for a complex multi-stage threat including directory brute-forcing, SQL injection, and webshell deployment. The goal was to achieve 100% visibility into the adversary's "hands-on-keyboard" activity, ultimately identifying the specific vulnerabilities (insecure file uploads and SQLi) and the unauthorized egress callback on Port 4422 to provide data-driven mitigation strategies.
 
 ### Skills Learned
 
